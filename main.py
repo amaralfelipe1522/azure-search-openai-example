@@ -11,5 +11,10 @@ def answer_question_from_search(query):
     return get_azure_openai_response(prompt)
 
 if __name__ == "__main__":
-    response = answer_question_from_search("Qual o nome da seguradora?")
-    print(response)
+    while True:
+        query = input("Digite sua pergunta (ou 'sair' para encerrar): ").strip()
+        if query.lower() == "sair":
+            print("Encerrando o programa. Até mais!")
+            break
+        response = answer_question_from_search(query)
+        print(f"Resposta: {response}")
